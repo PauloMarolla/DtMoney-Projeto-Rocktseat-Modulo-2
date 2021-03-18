@@ -4,6 +4,7 @@ import { GlobalStyle } from './styled/global';
 import { Header } from './components/Header/index'
 import { Dashboard } from './components/Dashboard';
 import { createServer } from 'miragejs'
+import { NewTransactionsMOdal } from './components/NewTransactionsModal';
 
 createServer({
   routes() {
@@ -42,12 +43,9 @@ function App() {
     <>
       <Header onOpenNewTransactionModal={handleOpenNewTransactionModal} />
       <Dashboard />
-      <Modal
-          onRequestClose={handleCloseNewTransactionModal}
-          isOpen={isNewTransactionModalOpen}
-        >
-          <h2>Cadastrar transacao</h2>
-        </Modal>
+      <NewTransactionsMOdal
+      isOpen={isNewTransactionModalOpen}
+      onRequestClose={handleCloseNewTransactionModal} />
       <GlobalStyle />
     </>
   );
